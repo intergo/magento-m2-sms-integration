@@ -1,0 +1,28 @@
+{
+    "name": "smsto/module-sms",
+    "description": "SMSto SMS Integration with Magento developed by SMSto Team",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "version": "0.0.1",
+    "authors": [
+        {
+            "name": "SMSto Tech Team",
+            "email": "support@sms.to"
+        }
+    ],
+    "repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/sms-global/magento-m2-sms-integration"
+    }
+   ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Smsto\\Sms\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

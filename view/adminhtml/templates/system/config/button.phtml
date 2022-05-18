@@ -1,0 +1,29 @@
+<script>
+    require([
+        'jquery',
+        'prototype',
+    ], function(jQuery){
+        function sendTestSMS() {
+            params = {
+                "message": jQuery("#generalsettings_testsmssettings_testsmstext").val(),
+                "destination": jQuery("#generalsettings_testsmssettings_testmobilenumber").val(),
+            };
+
+            new Ajax.Request('<?php echo $block->getAjaxUrl() ?>', {
+                loaderArea:     false,
+                asynchronous:   true,
+                parameters:     params,
+                onSuccess: function(transport) {
+                    var response = JSON.parse(transport.responseText);
+                    alert(response);
+                }
+            });
+        }
+
+        jQuery('#testsms_btn').click(function () {
+            sendTestSMS ();
+        });
+    });
+</script>
+
+<?php echo $block->getButtonHtml() ?>

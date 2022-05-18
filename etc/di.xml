@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Smsto\Sms\Api\SmslogRepositoryInterface" type="Smsto\Sms\Model\SmslogRepository"/>
+	<preference for="Smsto\Sms\Api\Data\SmslogInterface" type="Smsto\Sms\Model\Data\Smslog"/>
+	<preference for="Smsto\Sms\Api\Data\SmslogSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="Smsto\Sms\Model\ResourceModel\Smslog\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">smsto_smslog</argument>
+			<argument name="resourceModel" xsi:type="string">Smsto\Sms\Model\ResourceModel\Smslog\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="smsto_sms_smslog_listing_data_source" xsi:type="string">Smsto\Sms\Model\ResourceModel\Smslog\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+	<type name="Magento\Framework\Console\CommandList">
+		<arguments>
+			<argument name="commands" xsi:type="array">
+				<item name="UpdateSmsStatus" xsi:type="object">Smsto\Sms\Console\Command\UpdateSmsStatus</item>
+			</argument>
+		</arguments>
+	</type>
+	<type name="Smsto\Sms\Logger\Handler">
+		<arguments>
+			<argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+			<argument name="fileName" xsi:type="string">/var/log/sms.log</argument>
+		</arguments>
+	</type>
+	<type name="Smsto\Sms\Logger\Logger">
+		<arguments>
+			<argument name="name" xsi:type="string">SMSto</argument>
+			<argument name="handlers"  xsi:type="array">
+				<item name="report" xsi:type="object">Smsto\Sms\Logger\Handler</item>
+				<item name="system" xsi:type="object">Smsto\Sms\Logger\Handler</item>
+				<item name="debug" xsi:type="object">Smsto\Sms\Logger\Handler</item>
+			</argument>
+		</arguments>
+	</type>
+</config>
