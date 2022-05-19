@@ -68,7 +68,7 @@ class Sms extends AbstractHelper
      */
     public function getShowReports()
     {
-        return $this->objectInterface->getValue('generalsettings/smstosettings/showreports');
+        return (boolean) $this->objectInterface->getValue('generalsettings/smstosettings/showreports');
     }
 
     /**
@@ -77,7 +77,7 @@ class Sms extends AbstractHelper
      */
     public function getShowContacts()
     {
-        return $this->objectInterface->getValue('generalsettings/smstosettings/showcontacts');
+        return (boolean) $this->objectInterface->getValue('generalsettings/smstosettings/showcontacts');
     }
 
     /**

@@ -56,6 +56,11 @@ class SmslogRepository implements SmslogRepositoryInterface
     private $collectionProcessor;
 
     /**
+     * @var \Smsto\Sms\Helper\Sms
+     */
+    protected $smsHelper;
+
+    /**
      * @param ResourceSmslog $resource
      * @param SmslogFactory $smslogFactory
      * @param SmslogInterfaceFactory $dataSmslogFactory
@@ -93,33 +98,23 @@ class SmslogRepository implements SmslogRepositoryInterface
                                                                           ->get(\Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface::class);
         $this->extensionAttributesJoinProcessor = $extensionAttributesJoinProcessor;
         $this->extensibleDataObjectConverter = $extensibleDataObjectConverter;
+        $this->smsHelper = ObjectManager::getInstance()->get(\Smsto\Sms\Helper\Sms::class);
     }
 
     /**
      * {@inheritdoc}
      */
     public function getParams() {
-        dd('adf');
-        $collection = $this->smslogCollectionFactory->create();
-
-        $this->extensionAttributesJoinProcessor->process(
-            $collection,
-            \Smsto\Sms\Api\Data\SmslogInterface::class
-        );
-
-        $this->collectionProcessor->process($criteria, $collection);
-
-        $searchResults = $this->searchResultsFactory->create();
-        $searchResults->setSearchCriteria($criteria);
-
-        $items = [];
-        foreach ($collection as $model) {
-            $items[] = $model->getDataModel();
-        }
-
-        $searchResults->setItems($items);
-        $searchResults->setTotalCount($collection->getSize());
-        return $searchResults;
+        $response = [
+            "success" => true,
+            "message" => null,
+            "messages" => null,
+            "data" => [
+                "show_reports" => $this->smsHelper->getShowReports(),
+                "show_people" => $this->smsHelper->getShowContacts()
+            ]
+        ];
+        return $response;
     }
 
     /**
