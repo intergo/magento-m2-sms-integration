@@ -4,9 +4,7 @@
 		<generalsettings>
 			<smstosettings>
 				<enabled/>
-				<apiurl/>
 				<apikey/>
-				<secretkey/>
 				<senderid/>
 				<storemobile/>
 			</smstosettings>
