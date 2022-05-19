@@ -15,6 +15,12 @@ use Magento\Framework\Api\SearchCriteriaInterface;
 
 interface SmslogRepositoryInterface
 {
+    /**
+     * Retrieve smsto params.
+     * @return \Smsto\Sms\Api\Data\SmslogSearchResultsInterface
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
+    public function getParams();
 
     /**
      * Save Smslog

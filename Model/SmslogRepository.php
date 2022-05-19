@@ -98,6 +98,33 @@ class SmslogRepository implements SmslogRepositoryInterface
     /**
      * {@inheritdoc}
      */
+    public function getParams() {
+        dd('adf');
+        $collection = $this->smslogCollectionFactory->create();
+
+        $this->extensionAttributesJoinProcessor->process(
+            $collection,
+            \Smsto\Sms\Api\Data\SmslogInterface::class
+        );
+
+        $this->collectionProcessor->process($criteria, $collection);
+
+        $searchResults = $this->searchResultsFactory->create();
+        $searchResults->setSearchCriteria($criteria);
+
+        $items = [];
+        foreach ($collection as $model) {
+            $items[] = $model->getDataModel();
+        }
+
+        $searchResults->setItems($items);
+        $searchResults->setTotalCount($collection->getSize());
+        return $searchResults;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function save(
         \Smsto\Sms\Api\Data\SmslogInterface $smslog
     ) {

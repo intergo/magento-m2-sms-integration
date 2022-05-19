@@ -20,6 +20,20 @@
                     <validate>required-entry</validate>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
+                <field id="showreports" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="11" translate="label"
+                       type="select">
+                    <label>Show Reports</label>
+                    <comment>Display the reports tab?</comment>
+                    <validate>required-entry</validate>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="showcontacts" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="12" translate="label"
+                       type="select">
+                    <label>Show Contacts</label>
+                    <comment>Display the contacts and lists tab?</comment>
+                    <validate>required-entry</validate>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
                 <field id="apikey" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="3" translate="label"
                        type="text">
                     <label>API key</label>

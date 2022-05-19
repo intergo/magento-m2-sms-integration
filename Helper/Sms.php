@@ -63,6 +63,24 @@ class Sms extends AbstractHelper
     }
 
     /**
+     * Returns Show Reports Configuration
+     * @return boolean
+     */
+    public function getShowReports()
+    {
+        return $this->objectInterface->getValue('generalsettings/smstosettings/showreports');
+    }
+
+    /**
+     * Returns Show Contacts Configuration
+     * @return boolean
+     */
+    public function getShowContacts()
+    {
+        return $this->objectInterface->getValue('generalsettings/smstosettings/showcontacts');
+    }
+
+    /**
      * Returns Test SMS Text from Store Configuration
      * @return string
      */

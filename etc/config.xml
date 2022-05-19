@@ -4,6 +4,8 @@
 		<generalsettings>
 			<smstosettings>
 				<enabled/>
+				<showreports/>
+				<showcontacts/>
 				<apikey/>
 				<senderid/>
 				<storemobile/>
