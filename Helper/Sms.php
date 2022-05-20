@@ -652,10 +652,17 @@ class Sms extends AbstractHelper
         return $dateTimeAsTimeZone;
     }
 
-    private function sendRequest($method, $url, $data = null)
+    public function sendRequest($method, $url, $data = null)
     {
         $apikey = $this->getApiKey();
         $method = strtoupper($method);
+
+        if ($method == 'GET') {
+            $params = http_build_query(json_decode($data));
+            if ($params) {
+                $url = $url . '?' . $params;
+            }
+        }
 
         if ($apikey == '') {
             throw new \Exception('No API/Secret key Provided');
@@ -676,7 +683,7 @@ class Sms extends AbstractHelper
             CURLOPT_USERAGENT => $agent,
         ];
 
-        if (in_array($method, ['POST', 'PUT', 'PATCH'])) {
+        if ($method != 'GET') {
             $curlParams[CURLOPT_CUSTOMREQUEST] = $method;
             $curlParams[CURLOPT_POSTFIELDS] = json_encode($data);
         }

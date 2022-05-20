@@ -17,10 +17,17 @@ interface SmslogRepositoryInterface
 {
     /**
      * Retrieve smsto params.
-     * @return \Smsto\Sms\Api\Data\SmslogSearchResultsInterface
+     * @return array
      * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function getParams();
+
+    /**
+     * Call smsto api and return result.
+     * @return string
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
+    public function callSmsto();
 
     /**
      * Save Smslog

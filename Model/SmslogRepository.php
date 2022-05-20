@@ -120,6 +120,17 @@ class SmslogRepository implements SmslogRepositoryInterface
     /**
      * {@inheritdoc}
      */
+    public function callSmsto() {
+        $method = strtoupper($_GET['_method']);
+        $url = $_GET['_url'];
+        $payload = json_decode($_GET['payload'], true);
+        $response = $this->smsHelper->sendRequest($method, $url, $payload);
+        return $response;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function save(
         \Smsto\Sms\Api\Data\SmslogInterface $smslog
     ) {
