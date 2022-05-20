@@ -685,7 +685,7 @@ class Sms extends AbstractHelper
 
         if ($method != 'GET') {
             $curlParams[CURLOPT_CUSTOMREQUEST] = $method;
-            $curlParams[CURLOPT_POSTFIELDS] = json_encode($data);
+            $curlParams[CURLOPT_POSTFIELDS] = is_array($data) ? json_encode($data) : $data;
         }
 
         curl_setopt_array($curl, $curlParams);

@@ -20,5 +20,11 @@
                 <value id="www_smsto_css_assets" type="host">https://integration.sms.to/</value>
             </values>
         </policy>
+        <policy id="img-src">
+            <values>
+                <value id="www_smsto_img_base" type="host"></value>
+                <value id="www_smsto_img_assets" type="host">https://integration.sms.to/</value>
+            </values>
+        </policy>
     </policies>
 </csp_whitelist>
