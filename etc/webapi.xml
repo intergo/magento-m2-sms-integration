@@ -6,7 +6,7 @@
 			<resource ref="anonymous" />
 		</resources>
 	</route>
-    <route method="GET" url="/V1/smsto-sms/call">
+    <route method="GET" url="/V1/smsto-sms/callsmsto">
 		<service class="Smsto\Sms\Api\SmslogRepositoryInterface" method="callSmsto"/>
 		<resources>
 			<resource ref="anonymous" />
