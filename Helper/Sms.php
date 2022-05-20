@@ -64,20 +64,20 @@ class Sms extends AbstractHelper
 
     /**
      * Returns Show Reports Configuration
-     * @return boolean
+     * @return string
      */
     public function getShowReports()
     {
-        return (boolean) $this->objectInterface->getValue('generalsettings/smstosettings/showreports');
+        return $this->objectInterface->getValue('generalsettings/smstosettings/showreports');
     }
 
     /**
      * Returns Show Contacts Configuration
-     * @return boolean
+     * @return string
      */
     public function getShowContacts()
     {
-        return (boolean) $this->objectInterface->getValue('generalsettings/smstosettings/showcontacts');
+        return $this->objectInterface->getValue('generalsettings/smstosettings/showcontacts');
     }
 
     /**
@@ -657,7 +657,7 @@ class Sms extends AbstractHelper
         $apikey = $this->getApiKey();
         $method = strtoupper($method);
 
-        if ($method == 'GET') {
+        if ($method == 'GET' && $data) {
             $params = http_build_query(json_decode($data));
             if ($params) {
                 $url = $url . '?' . $params;

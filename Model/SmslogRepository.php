@@ -26,6 +26,7 @@ use Smsto\Sms\Api\Data\SmslogInterfaceFactory;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Api\DataObjectHelper;
 use Smsto\Sms\Model\ResourceModel\Smslog as ResourceSmslog;
+use stdClass;
 
 class SmslogRepository implements SmslogRepositoryInterface
 {
@@ -114,7 +115,8 @@ class SmslogRepository implements SmslogRepositoryInterface
                 "show_people" => $this->smsHelper->getShowContacts()
             ]
         ];
-        return $response;
+        echo json_encode($response);
+        die;
     }
 
     /**
@@ -123,9 +125,10 @@ class SmslogRepository implements SmslogRepositoryInterface
     public function callSmsto() {
         $method = strtoupper($_GET['_method']);
         $url = $_GET['_url'];
-        $payload = json_decode($_GET['payload'], true);
+        $payload = isset($_GET['payload']) ? $_GET['payload'] : null;
         $response = $this->smsHelper->sendRequest($method, $url, $payload);
-        return $response;
+        echo $response;
+        die;
     }
 
     /**
