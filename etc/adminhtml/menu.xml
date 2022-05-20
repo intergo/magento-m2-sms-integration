@@ -2,7 +2,8 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
 	<menu>
 		<add id="Smsto::top_level" module="Smsto_Sms" translate="title" resource="Magento_Backend::content" sortOrder="9999" title="Smsto"/>
-		<add action="smsto_sms/smslog/index" id="Smsto_Sms::smsto_sms_smslog" module="Smsto_Sms" parent="Smsto::top_level" resource="Magento_Backend::content" sortOrder="9999" title="SMS Log Hstory"/>
-		<add action="smsto_sms/smslog/new" id="Smsto_Sms::smsto_sms_new" module="Smsto_Sms" parent="Smsto::top_level" resource="Magento_Backend::content" sortOrder="9999" title="Send SMS"/>
+		<add action="smsto_sms/smslog/index" id="Smsto_Sms::smsto_sms_smslog" module="Smsto_Sms" parent="Smsto::top_level" resource="Magento_Backend::content" sortOrder="10" title="SMS Log Hstory"/>
+		<add action="smsto_sms/smslog/new" id="Smsto_Sms::smsto_sms_new" module="Smsto_Sms" parent="Smsto::top_level" resource="Magento_Backend::content" sortOrder="20" title="Send SMS"/>
+        <add id="Smsto_Sms::smsto_sms_send" title="Send" translate="title" module="Smsto_Sms" parent="Smsto::top_level" sortOrder="30" action="smsto_sms/send" resource="Smsto_Sms::send"/>
 	</menu>
 </config>
