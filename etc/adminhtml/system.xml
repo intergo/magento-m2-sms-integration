@@ -98,35 +98,6 @@
             <label>SMS Triggers</label>
             <tab>smsto</tab>
             <resource>Smsto_Sms::config_smsto_sms</resource>
-            <group id="newcustomer" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="14"
-                   translate="label">
-                <label>New Customer Welcome</label>
-                <field id="enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="15" translate="label"
-                       type="select">
-                    <label>Enabled</label>
-                    <comment/>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                </field>
-                <field id="senderid" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="16"
-                       translate="label" type="text">
-                    <label>Sender ID</label>
-                    <comment/>
-                </field>
-                <field id="smstext" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="17" translate="label"
-                       type="textarea">
-                    <label>SMS Text</label>
-                    <comment>You can use: {CustomerFirstName} for customer first name, {CustomerMiddleName} for customer
-                        middle name
-                        {CustomerLastName} for customer last name, {CustomerEmail} for customer email
-                    </comment>
-                </field>
-                <field id="adminnotify" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="18"
-                       translate="label" type="select">
-                    <label>Send Notification to Admin</label>
-                    <comment/>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                </field>
-            </group>
             <group id="neworder" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="19" translate="label">
                 <label>New Order</label>
                 <field id="enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label"

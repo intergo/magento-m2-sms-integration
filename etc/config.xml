@@ -23,12 +23,6 @@
 			</profile>
 		</generalsettings>
 		<smstriggers>
-			<newcustomer>
-				<enabled/>
-				<senderid/>
-				<smstext/>
-				<adminnotify/>
-			</newcustomer>
 			<neworder>
 				<enabled/>
 				<senderid/>

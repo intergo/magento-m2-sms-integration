@@ -99,42 +99,6 @@ class Sms extends AbstractHelper
     }
 
     /**
-     * Returns whether new customer sms is enabled or not
-     * @return boolean
-     */
-    public function getNewCustomerSmsEnabled()
-    {
-        return $this->objectInterface->getValue('smstriggers/newcustomer/enabled');
-    }
-
-    /**
-     * Returns New Customer SMS Text from Store Configuration
-     * @return string
-     */
-    public function getNewCustomerSmsText()
-    {
-        return $this->objectInterface->getValue('smstriggers/newcustomer/smstext');
-    }
-
-    /**
-     * Returns whether new customer sms notification to admin is enabled or not
-     * @return boolean
-     */
-    public function getNewCustomerSmsAdminNotifyEnabled()
-    {
-        return $this->objectInterface->getValue('smstriggers/newcustomer/adminnotify');
-    }
-
-    /**
-     * Returns New Customer SMS Sender Id from Store Configuration
-     * @return string
-     */
-    public function getNewCustomerSmsSenderId()
-    {
-        return $this->objectInterface->getValue('smstriggers/newcustomer/senderid');
-    }
-
-    /**
      * Returns whether new order sms is enabled or not
      * @return boolean
      */

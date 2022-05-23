@@ -6,9 +6,6 @@
 	<event name="sales_order_creditmemo_refund">
 		<observer instance="Smsto\Sms\Observer\Sales\OrderCreditmemoSaveAfter" name="smsto_sms_observer_sales_ordercreditmemosaveafter_sales_order_creditmemo_save_after"/>
 	</event>
-	<event name="customer_register_success">
-		<observer instance="Smsto\Sms\Observer\Customer\RegisterSuccess" name="smsto_sms_observer_customer_registersuccess_customer_register_success"/>
-	</event>
 	<event name="sales_order_save_after">
 		<observer instance="Smsto\Sms\Observer\Sales\OrderSaveAfter" name="smsto_sms_observer_sales_ordersaveafter_sales_order_save_after"/>
 	</event>
