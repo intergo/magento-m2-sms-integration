@@ -39,7 +39,6 @@ class OrderShipmentSaveAfter implements \Magento\Framework\Event\ObserverInterfa
     )
     {
         if ($this->smsHelper->getNewShipmentSmsEnabled()) {
-
             $shipment = $observer->getEvent()->getShipment()->getData();
             $this->logger->info('Shipment', [$shipment]);
             $orderId = $shipment['order_id'];
@@ -57,6 +56,7 @@ class OrderShipmentSaveAfter implements \Magento\Framework\Event\ObserverInterfa
             $destination = $address->getTelephone();
 
             $this->logger->info('Customer Mobile:', [$destination]);
+
 
             if ($destination) {
                 if ($shipment['created_at'] == $shipment['updated_at']) {

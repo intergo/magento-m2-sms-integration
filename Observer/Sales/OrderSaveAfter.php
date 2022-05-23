@@ -68,6 +68,7 @@ class OrderSaveAfter implements \Magento\Framework\Event\ObserverInterface
             }
         }
 
+
         if ($destination) {
             $this->logger->info('Customer Mobile:', [$destination]);
             if ($state == "new" && $this->smsHelper->getNewOrderSmsEnabled()) {

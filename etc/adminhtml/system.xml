@@ -186,6 +186,36 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
             </group>
+            <group id="shipmentupdates" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="24"
+                   translate="label">
+                <label>Shipment Updates</label>
+                <field id="enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="25" translate="label"
+                       type="select">
+                    <label>Enabled</label>
+                    <comment/>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="senderid" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="26"
+                       translate="label" type="text">
+                    <label>Sender ID</label>
+                    <comment/>
+                </field>
+                <field id="smstext" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="27" translate="label"
+                       type="textarea">
+                    <label>SMS Text</label>
+                    <comment>You can use: {CustomerFirstName},
+                        {CustomerLastName},{CustomerTelephone}, {CustomerEmail},
+                        {OrderNumber}, {OrderCurrency}, {OrderTotal}, {OrderDate}
+                        {OrderTime}, {OrderStatus}, {Carrier}, {TrackingNumber}
+                    </comment>
+                </field>
+                <field id="adminnotify" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="28"
+                       translate="label" type="select">
+                    <label>Send Admin Notification</label>
+                    <comment/>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
             <group id="orderhold" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="29" translate="label">
                 <label>Order Hold</label>
                 <field id="enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label"
