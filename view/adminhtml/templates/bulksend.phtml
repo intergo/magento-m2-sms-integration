@@ -37,7 +37,6 @@ $customers = $block->getCustomerParams();
                     <input type="hidden" name="entity_id" value="<?php  echo implode(",", array_keys($customers))?> ">
                     <input type="hidden" name="form_key" value="<?php echo $block->getFormKey()?>">
                     <button type="submit" class="btn btn-primary"><span>Send SMS</span></button>
-                    <button type="reset" class="btn btn-default"><span>Cancel</span></button>
                     <span class="clear"></span>
                 </div>
             </form>
