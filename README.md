@@ -1,27 +1,18 @@
 
 ## SMSto SMS Integration Magento 2 Module
 
-The SMSto SMS Integration is an integration with the Magento e-commerce platform. This Integration enables Magento store admins to configure automated SMS notifications to the administrator and customers for important order status updates, and also allows sending bulk SMS messages to customers. The Integration is free, but a SMSto MXT account is required to send messages. Signup with our service is free as well, and you pay only for the SMS messages. The Integration offers great flexibility, in sending individual SMS or bulk SMS messages to various groups.
+The SMSto SMS Integration is an integration with the Magento e-commerce platform. This Integration enables Magento store admins to configure automated SMS notifications to the administrator and customers for important order status updates, and also allows sending bulk SMS messages to customers. The Integration is free, but a SMSto account is required to send messages. Signup with our service is free as well, and you pay only for the SMS messages. The Integration offers great flexibility, in sending individual SMS or bulk SMS messages to various groups.
 
-
-## SMSto Benefits
-
-* Competitive Mass and Bulk SMS Pricing
-* Wholesale pricing 
-* 99.9% On-net network redundancy
-* 99.9% up-time availability
-* Enterprise Scalability
-* API Flexibility
-* No setup fees - No contracts - No catches
+No contracts, no commitments, pay only for what you use. In case of high volume SMS API usage, our sales team is prepared to give out additional discounts.
 
 ## Integration Compatibility
 
-* Magento Community Edition: 2.3 and 2.4
+* Magento Community Edition: 2.4
 
 ## Features
 
 
-* Easy options to check the balance, login to MXT, get support and buy credits.<br/>
+* Easy options to check the balance, login to SMSto, get support and buy credits.<br/>
 * Allows flexibility in enabling/disabling the Integration as well as setting individual triggers.<br/>
 * When a new order is placed<br/>
 * When the order is paid (invoice created)<br/>
@@ -34,7 +25,6 @@ The SMSto SMS Integration is an integration with the Magento e-commerce platform
 * Allows you to send bulk SMS to customers.<br/>
 * Allows you to send individual SMS to customer<br/>
 * Options to send notifications to admin for all the triggers.<br/>
-* Instantly check whether the settings are correct by sending a test message.<br/>
 * Provide a complete list of sent messages history with the details and the status of the message.
 * Supports Unicode SMS messages.
 </p>
@@ -61,4 +51,4 @@ php bin/magento setup:di:compile
 
 ## Support
 
-For general support or questions about your SMSto account, you can reach out to  [our website](https://sms.to/support/).
+For general support or questions about your SMSto account, you can reach out to  [our website](https://support.sms.to/).
