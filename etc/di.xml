@@ -3,13 +3,6 @@
 	<preference for="Smsto\Sms\Api\SmslogRepositoryInterface" type="Smsto\Sms\Model\SmslogRepository"/>
 	<preference for="Smsto\Sms\Api\Data\SmslogInterface" type="Smsto\Sms\Model\Data\Smslog"/>
 	<preference for="Smsto\Sms\Api\Data\SmslogSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
-	<type name="Magento\Framework\Console\CommandList">
-		<arguments>
-			<argument name="commands" xsi:type="array">
-				<item name="UpdateSmsStatus" xsi:type="object">Smsto\Sms\Console\Command\UpdateSmsStatus</item>
-			</argument>
-		</arguments>
-	</type>
 	<type name="Smsto\Sms\Logger\Handler">
 		<arguments>
 			<argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
