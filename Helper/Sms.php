@@ -428,32 +428,6 @@ class Sms extends AbstractHelper
             return $e->getMessage();
         }
 
-        if ($output) {
-            $results = json_decode($output);
-
-            if (property_exists($results, 'messages')) {
-
-                foreach ($results->messages as $result) {
-                    $data = [];
-                    $data['msg_id'] = $result->outgoing_id;
-                    $data['msg_date'] = property_exists($result, 'scheduledDatetime') ? $this->getTimeAccordingToTimeZone($result->scheduledDatetime)
-                        : $this->getTimeAccordingToTimeZone($result->dateTime);
-                    $data['sender_id'] = $result->sender_id;
-                    $data['destination'] = $result->destination;
-                    $data['message'] = $result->message;
-                    $data['status'] = $result->status;
-                    $data['store_id'] = 1;
-                    $data['trigger'] = $trigger;
-                    $data['comment'] = $output;
-                    $model = $this->objectManager->create(\Smsto\Sms\Model\Smslog::class);
-                    try {
-                        $model->setData($data)->save();
-                    } catch (\Exception $e) {
-                        //
-                    }
-                }
-            }
-        }
     }
 
     /**
