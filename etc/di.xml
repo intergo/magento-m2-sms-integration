@@ -9,13 +9,6 @@
 			<argument name="resourceModel" xsi:type="string">Smsto\Sms\Model\ResourceModel\Smslog\Collection</argument>
 		</arguments>
 	</virtualType>
-	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
-		<arguments>
-			<argument name="collections" xsi:type="array">
-				<item name="smsto_sms_smslog_listing_data_source" xsi:type="string">Smsto\Sms\Model\ResourceModel\Smslog\Grid\Collection</item>
-			</argument>
-		</arguments>
-	</type>
 	<type name="Magento\Framework\Console\CommandList">
 		<arguments>
 			<argument name="commands" xsi:type="array">
