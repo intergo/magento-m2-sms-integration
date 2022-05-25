@@ -14,28 +14,19 @@ namespace Smsto\Sms\Model;
 use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\App\ObjectManager;
 use Smsto\Sms\Api\SmslogRepositoryInterface;
-use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Reflection\DataObjectProcessor;
 use Smsto\Sms\Model\ResourceModel\Smslog\CollectionFactory as SmslogCollectionFactory;
-use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Api\ExtensionAttribute\JoinProcessorInterface;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\Api\ExtensibleDataObjectConverter;
-use Smsto\Sms\Api\Data\SmslogSearchResultsInterfaceFactory;
 use Smsto\Sms\Api\Data\SmslogInterfaceFactory;
-use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Api\DataObjectHelper;
 use Smsto\Sms\Model\ResourceModel\Smslog as ResourceSmslog;
-use stdClass;
 
 class SmslogRepository implements SmslogRepositoryInterface
 {
 
     protected $resource;
-
-    protected $searchResultsFactory;
-
-    private $storeManager;
 
     protected $dataSmslogFactory;
 
@@ -66,7 +57,6 @@ class SmslogRepository implements SmslogRepositoryInterface
      * @param SmslogFactory $smslogFactory
      * @param SmslogInterfaceFactory $dataSmslogFactory
      * @param SmslogCollectionFactory $smslogCollectionFactory
-     * @param SmslogSearchResultsInterfaceFactory $searchResultsFactory
      * @param DataObjectHelper $dataObjectHelper
      * @param DataObjectProcessor $dataObjectProcessor
      * @param StoreManagerInterface $storeManager
@@ -79,7 +69,6 @@ class SmslogRepository implements SmslogRepositoryInterface
         SmslogFactory $smslogFactory,
         SmslogInterfaceFactory $dataSmslogFactory,
         SmslogCollectionFactory $smslogCollectionFactory,
-        SmslogSearchResultsInterfaceFactory $searchResultsFactory,
         DataObjectHelper $dataObjectHelper,
         DataObjectProcessor $dataObjectProcessor,
         StoreManagerInterface $storeManager,
@@ -90,7 +79,6 @@ class SmslogRepository implements SmslogRepositoryInterface
         $this->resource = $resource;
         $this->smslogFactory = $smslogFactory;
         $this->smslogCollectionFactory = $smslogCollectionFactory;
-        $this->searchResultsFactory = $searchResultsFactory;
         $this->dataObjectHelper = $dataObjectHelper;
         $this->dataSmslogFactory = $dataSmslogFactory;
         $this->dataObjectProcessor = $dataObjectProcessor;
