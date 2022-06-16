@@ -1,5 +1,5 @@
 {
-    "name": "smsto/module-sms",
+    "name": "intergo_telecom_ltd/module-sms",
     "description": "SMSto SMS Integration with Magento developed by SMSto Team",
     "type": "magento2-module",
     "license": "proprietary",
