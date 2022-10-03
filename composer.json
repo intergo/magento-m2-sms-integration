@@ -3,7 +3,7 @@
     "description": "SMSto SMS Integration with Magento developed by SMSto Team",
     "type": "magento2-module",
     "license": "proprietary",
-    "version": "1.0.4",
+    "version": "1.0.6",
     "authors": [
         {
             "name": "SMSto Tech Team",
