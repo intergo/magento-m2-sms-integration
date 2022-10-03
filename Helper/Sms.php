@@ -617,6 +617,7 @@ class Sms extends AbstractHelper
                 "Authorization: Bearer $apikey",
                 'Content-Type: application/json',
                 'Accept: application/json',
+                'X-Smsto-Integration-Name: magento',
             ],
             CURLOPT_USERAGENT => $agent,
         ];
