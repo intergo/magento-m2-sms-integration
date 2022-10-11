@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SMSto SMS Integration with Magento developed by SMSto Team (Panayiotis Halouvas)
  * Copyright (C) 2018  SMSto
@@ -427,7 +428,6 @@ class Sms extends AbstractHelper
         } catch (\Exception $e) {
             return $e->getMessage();
         }
-
     }
 
     /**
@@ -641,5 +641,15 @@ class Sms extends AbstractHelper
         }
 
         return $response;
+    }
+
+    /**
+     * Retrieve Client Params
+     *
+     * @return array
+     */
+    public function getParams()
+    {
+        return $this->_getRequest()->getParams();
     }
 }
