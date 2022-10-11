@@ -103,8 +103,7 @@ class SmslogRepository implements SmslogRepositoryInterface
                 "show_people" => $this->smsHelper->getShowContacts()
             ]
         ];
-        echo json_encode($response);
-        die;
+        return $response;
     }
 
     /**
@@ -115,8 +114,7 @@ class SmslogRepository implements SmslogRepositoryInterface
         $url = $_GET['_url'];
         $payload = isset($_GET['payload']) ? $_GET['payload'] : null;
         $response = $this->smsHelper->sendRequest($method, $url, $payload);
-        echo $response;
-        die;
+        return json_decode($response, true);
     }
 
 }
