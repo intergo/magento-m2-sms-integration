@@ -24,7 +24,7 @@ interface SmslogRepositoryInterface
 
     /**
      * Call smsto api and return result.
-     * @return string
+     * @return array
      * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function callSmsto();

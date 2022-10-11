@@ -19,4 +19,7 @@
 			</argument>
 		</arguments>
 	</type>
+	<type name="Magento\Framework\Webapi\ServiceOutputProcessor">
+        <plugin name="smsto_smsplugin" type="Smsto\Sms\Plugin\ServiceOutputProcessorPlugin"/>
+    </type>
 </config>

@@ -103,20 +103,19 @@ class SmslogRepository implements SmslogRepositoryInterface
                 "show_people" => $this->smsHelper->getShowContacts()
             ]
         ];
-        echo json_encode($response);
-        die;
+        return $response;
     }
 
     /**
      * {@inheritdoc}
      */
     public function callSmsto() {
-        $method = strtoupper($_GET['_method']);
-        $url = $_GET['_url'];
-        $payload = isset($_GET['payload']) ? $_GET['payload'] : null;
+        $params = $this->smsHelper->getParams();
+        $method = strtoupper($params['_method']);
+        $url = $params['_url'];
+        $payload = isset($params['payload']) ? $params['payload'] : null;
         $response = $this->smsHelper->sendRequest($method, $url, $payload);
-        echo $response;
-        die;
+        return json_decode($response, true);
     }
 
 }
