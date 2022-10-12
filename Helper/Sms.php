@@ -445,12 +445,10 @@ class Sms extends AbstractHelper
 
         if ($result) {
 
-            if (property_exists($result, 'status')) {
-                return "Postpaid";
-            } elseif (property_exists($result, 'code')) {
-                return "Postpaid";
-            } else {
+            if (property_exists($result, 'currency') && property_exists($result, 'balance')) {
                 return "<strong>" . $result->currency . " " . $result->balance . "</strong>";
+            } else {
+                return "N/A";
             }
         }
     }
