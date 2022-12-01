@@ -400,6 +400,10 @@ class Sms extends AbstractHelper
      */
     public function sendSms($sender_id, $destination, $message, $messageDate = null, $trigger = "Message", $adminNotify = false)
     {
+        if (empty($message)) {
+            return;
+        }
+
         $sender_id = $sender_id ? $sender_id : $this->getSenderId();
         $destinationList = explode(",", $destination);
 
@@ -417,6 +421,9 @@ class Sms extends AbstractHelper
             'to' => $to,
             'message' => $message,
         ];
+        if (empty($sender_id)) {
+            unset($data['sender_id']);
+        }
 
         if ($messageDate) {
             $data['scheduledDateTime'] = $this->datetimeconv($messageDate);
@@ -485,8 +492,10 @@ class Sms extends AbstractHelper
      */
     public function messageProcessor($message, $data)
     {
-        foreach ($data as $key => $value) {
-            $message = str_replace('{' . $key . '}', $value, $message);
+        if (!is_null($message)) {
+            foreach ($data as $key => $value) {
+                $message = str_replace('{' . $key . '}', $value, $message);
+            }
         }
 
         return $message;
