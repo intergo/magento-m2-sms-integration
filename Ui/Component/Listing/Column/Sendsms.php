@@ -56,9 +56,8 @@ class Sendsms extends Column
 
                 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 
-                $key_form = $objectManager->get('Magento\Framework\Data\Form\FormKey');
+                $key_form = $objectManager->get(\Magento\Framework\Data\Form\FormKey::class);
                 $item[$fieldName . '_formkey'] =  $key_form->getFormKey();
-
 
                 $item[$fieldName . '_formaction'] = $this->urlBuilder->getUrl('smsto_sms/smslog/sendSMS');
             }

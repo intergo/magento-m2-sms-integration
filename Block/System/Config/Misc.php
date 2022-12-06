@@ -8,22 +8,15 @@ namespace Smsto\Sms\Block\System\Config;
 class Misc extends \Magento\Config\Block\System\Config\Form\Field
 {
     /**
+     * Undocumented variable
+     *
      * @var string
      */
     protected $_template = 'Smsto_Sms::system/config/misc.phtml';
 
     /**
-     * @param \Magento\Backend\Block\Template\Context $context
-     * @param array $data
-     */
-    public function __construct(
-        \Magento\Backend\Block\Template\Context $context,
-        array $data = []
-    ) {
-        parent::__construct($context, $data);
-    }
-
-    /**
+     * Undocumented variable
+     *
      * @param \Magento\Framework\Data\Form\Element\AbstractElement $element
      * @return void
      */
@@ -34,6 +27,8 @@ class Misc extends \Magento\Config\Block\System\Config\Form\Field
     }
 
     /**
+     * Undocumented variable
+     *
      * @param \Magento\Framework\Data\Form\Element\AbstractElement $element
      * @return void
      */

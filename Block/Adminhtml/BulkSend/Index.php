@@ -17,7 +17,6 @@ class Index extends \Magento\Backend\Block\Template
      */
     protected $urlBuilder;
 
-
     /**
      * @param \Magento\Backend\Block\Template\Context $context
      * @param array $data
@@ -32,6 +31,8 @@ class Index extends \Magento\Backend\Block\Template
     }
 
     /**
+     * Undocumented function
+     *
      * @return void
      */
     public function getFormUrl()
@@ -40,6 +41,8 @@ class Index extends \Magento\Backend\Block\Template
     }
 
     /**
+     * Undocumented function
+     *
      * @return void
      */
     public function getFormKey()
@@ -50,6 +53,8 @@ class Index extends \Magento\Backend\Block\Template
     }
 
     /**
+     * Undocumented function
+     *
      * @return void
      */
     public function getCustomerParams()
@@ -59,11 +64,14 @@ class Index extends \Magento\Backend\Block\Template
 
         foreach ($postData as $id) {
             $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-            $customerFactory = $objectManager->get('\Magento\Customer\Model\CustomerFactory');
+            $customerFactory = $objectManager->get(\Magento\Customer\Model\CustomerFactory::class);
             $customer = $customerFactory->create();
             $cust = $customer->load($id);
             $data[$id]['name'] = $cust->getName();
-            $data[$id]['phone'] = $cust->getDefaultBillingAddress() ? $cust->getDefaultBillingAddress()->getTelephone() : ($cust->getDefaultShippingAddress() ? $cust->getDefaultShippingAddress()->getTelephone() : null);
+            $data[$id]['phone'] = $cust->getDefaultBillingAddress() ?
+                $cust->getDefaultBillingAddress()->getTelephone() : ($cust->getDefaultShippingAddress() ?
+                    $cust->getDefaultShippingAddress()->getTelephone() :
+                    null);
         }
         return $data;
     }

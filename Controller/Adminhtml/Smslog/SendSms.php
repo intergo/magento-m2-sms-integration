@@ -34,12 +34,21 @@ class SendSms extends \Magento\Backend\App\Action
     protected $logger;
 
     /**
+     * Undocumented function
+     *
      * @param Context $context
      * @param Filter $filter
      * @param CollectionFactory $collectionFactory
+     * @param \Smsto\Sms\Helper\Sms $smsHelper
+     * @param Logger $logger
      */
-    public function __construct(Context $context, Filter $filter, CollectionFactory $collectionFactory, \Smsto\Sms\Helper\Sms $smsHelper, Logger $logger)
-    {
+    public function __construct(
+        Context $context,
+        Filter $filter,
+        CollectionFactory $collectionFactory,
+        \Smsto\Sms\Helper\Sms $smsHelper,
+        Logger $logger
+    ) {
         $this->filter = $filter;
         $this->collectionFactory = $collectionFactory;
         $this->smsHelper = $smsHelper;
@@ -65,8 +74,11 @@ class SendSms extends \Magento\Backend\App\Action
             $custids = [$custObj];
         }
         foreach ($custids as $custid) {
-            $customer = $objectManager->create('Magento\Customer\Model\Customer')->load($custid);
-            $destination = $customer->getDefaultBillingAddress() ? $customer->getDefaultBillingAddress()->getTelephone() : ($customer->getDefaultShippingAddress() ? $customer->getDefaultShippingAddress()->getTelephone() : null);
+            $customer = $objectManager->create(\Magento\Customer\Model\Customer::class)->load($custid);
+            $destination = $customer->getDefaultBillingAddress() ?
+                $customer->getDefaultBillingAddress()->getTelephone() : ($customer->getDefaultShippingAddress() ?
+                    $customer->getDefaultShippingAddress()->getTelephone() :
+                    null);
             if ($destination) {
                 $data = $this->smsHelper->getCustomerData($customer);
                 $this->logger->info('Customer Message SMS Initiated', [$customer->getFirstName()]);

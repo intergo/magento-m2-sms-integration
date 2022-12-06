@@ -36,7 +36,6 @@ class Smslog extends \Magento\Framework\Model\AbstractModel
      */
     protected $smslogDataFactory;
 
-
     /**
      * @param \Magento\Framework\Model\Context $context
      * @param \Magento\Framework\Registry $registry

@@ -65,7 +65,7 @@ class OrderCancelAfter implements \Magento\Framework\Event\ObserverInterface
             $this->logger->info('Order Cancel SMS Initiated', [$orderId]);
 
             $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-            $order = $objectManager->create('Magento\Sales\Model\Order')->load($orderId);
+            $order = $objectManager->create(\Magento\Sales\Model\Order::class)->load($orderId);
 
             $address = $order->getShippingAddress() ?? $order->getBillingAddress();
 

@@ -63,7 +63,7 @@ class OrderCreditmemoSaveAfter implements \Magento\Framework\Event\ObserverInter
             $orderId = $creditmemo['order_id'];
             $this->logger->info('Order Refund SMS Initiated', [$orderId]);
             $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-            $order = $objectManager->create('Magento\Sales\Model\Order')->load($orderId);
+            $order = $objectManager->create(\Magento\Sales\Model\Order::class)->load($orderId);
 
             $address = $order->getShippingAddress() ?? $order->getBillingAddress();
 

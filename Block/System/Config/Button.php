@@ -7,20 +7,16 @@ namespace Smsto\Sms\Block\System\Config;
  */
 class Button extends \Magento\Config\Block\System\Config\Form\Field
 {
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected $_template = 'Smsto_Sms::system/config/button.phtml';
 
     /**
-     * @param \Magento\Backend\Block\Template\Context $context
-     * @param array $data
-     */
-    public function __construct(
-        \Magento\Backend\Block\Template\Context $context,
-        array $data = []
-    ) {
-        parent::__construct($context, $data);
-    }
-
-    /**
+     * Undocumented function
+     *
      * @param \Magento\Framework\Data\Form\Element\AbstractElement $element
      * @return void
      */
@@ -31,6 +27,8 @@ class Button extends \Magento\Config\Block\System\Config\Form\Field
     }
 
     /**
+     * Undocumented function
+     *
      * @param \Magento\Framework\Data\Form\Element\AbstractElement $element
      * @return void
      */
@@ -40,6 +38,8 @@ class Button extends \Magento\Config\Block\System\Config\Form\Field
     }
 
     /**
+     * Undocumented function
+     *
      * @return void
      */
     public function getAjaxUrl()
@@ -48,12 +48,14 @@ class Button extends \Magento\Config\Block\System\Config\Form\Field
     }
 
     /**
+     * Undocumented function
+     *
      * @return void
      */
     public function getButtonHtml()
     {
         $button = $this->getLayout()->createBlock(
-            'Magento\Backend\Block\Widget\Button'
+            \Magento\Backend\Block\Widget\Button::class
         )->setData(
             [
                 'id' => 'testsms_btn',

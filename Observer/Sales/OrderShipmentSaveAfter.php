@@ -61,7 +61,7 @@ class OrderShipmentSaveAfter implements \Magento\Framework\Event\ObserverInterfa
             $this->logger->info('Shipment', [$shipment]);
             $orderId = $shipment['order_id'];
             $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-            $order = $objectManager->create('Magento\Sales\Model\Order')->load($orderId);
+            $order = $objectManager->create(\Magento\Sales\Model\Order::class)->load($orderId);
 
             $address = $order->getShippingAddress() ?? $order->getBillingAddress();
 
@@ -90,7 +90,10 @@ class OrderShipmentSaveAfter implements \Magento\Framework\Event\ObserverInterfa
                     $adminNotify = $this->smsHelper->getShipmentUpdatesSmsAdminNotifyEnabled();
                 }
                 $data = $this->smsHelper->getOrderData($order);
-                $data = array_merge($data, $this->smsHelper->getShipmentData($order, $observer->getEvent()->getShipment()));
+                $data = array_merge(
+                    $data,
+                    $this->smsHelper->getShipmentData($order, $observer->getEvent()->getShipment())
+                );
                 $data['CustomerTelephone'] = $destination;
                 $message = $this->smsHelper->messageProcessor($message, $data);
                 $this->smsHelper->sendSms($origin, $destination, $message, null, $trigger, $adminNotify);
