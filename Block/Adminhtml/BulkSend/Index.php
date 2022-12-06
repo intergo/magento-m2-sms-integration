@@ -2,7 +2,9 @@
 
 namespace Smsto\Sms\Block\Adminhtml\BulkSend;
 
-
+/**
+ * Bulk sending template
+ */
 class Index extends \Magento\Backend\Block\Template
 {
     /**
@@ -16,19 +18,30 @@ class Index extends \Magento\Backend\Block\Template
     protected $urlBuilder;
 
 
-    public function __construct(\Magento\Backend\Block\Template\Context $context, array $data = []
-    )
-    {
+    /**
+     * @param \Magento\Backend\Block\Template\Context $context
+     * @param array $data
+     */
+    public function __construct(
+        \Magento\Backend\Block\Template\Context $context,
+        array $data = []
+    ) {
         $this->request = $context->getRequest();
         $this->urlBuilder = $context->getUrlBuilder();
         parent::__construct($context, $data);
     }
 
+    /**
+     * @return void
+     */
     public function getFormUrl()
     {
         return $this->urlBuilder->getUrl('smsto_sms/smslog/sendSMS');
     }
 
+    /**
+     * @return void
+     */
     public function getFormKey()
     {
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
@@ -36,6 +49,9 @@ class Index extends \Magento\Backend\Block\Template
         return $key_form->getFormKey();
     }
 
+    /**
+     * @return void
+     */
     public function getCustomerParams()
     {
         $data = [];
@@ -51,5 +67,4 @@ class Index extends \Magento\Backend\Block\Template
         }
         return $data;
     }
-
 }

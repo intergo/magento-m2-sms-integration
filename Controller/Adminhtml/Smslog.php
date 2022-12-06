@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SMSto SMS Integration with Magento developed by SMSto Team (Panayiotis Halouvas)
  * Copyright (C) 2018  SMSto
@@ -11,11 +12,17 @@
 
 namespace Smsto\Sms\Controller\Adminhtml;
 
+/**
+ * Abstract smslog action
+ */
 abstract class Smslog extends \Magento\Backend\App\Action
 {
-
-    protected $_coreRegistry;
     const ADMIN_RESOURCE = 'Smsto_Sms::top_level';
+
+    /**
+     * @var [type]
+     */
+    protected $_coreRegistry;
 
     /**
      * @param \Magento\Backend\App\Action\Context $context

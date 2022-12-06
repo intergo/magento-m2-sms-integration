@@ -17,10 +17,19 @@ use Magento\Framework\App\Helper\Context;
 use Magento\Setup\Exception;
 use Smsto\Sms\Logger\Logger as Logger;
 
+/**
+ * Sms helper
+ */
 class Sms extends AbstractHelper
 {
-
+    /**
+     * @var [type]
+     */
     protected $objectInterface;
+
+    /**
+     * @var [type]
+     */
     protected $objectManager;
 
     /**
@@ -28,6 +37,11 @@ class Sms extends AbstractHelper
      */
     protected $_timezoneInterface;
 
+    /**
+     * @param Context $context
+     * @param Logger $logger
+     * @param \Magento\Framework\Stdlib\DateTime\TimezoneInterface $timezoneInterface
+     */
     public function __construct(Context $context, Logger $logger, \Magento\Framework\Stdlib\DateTime\TimezoneInterface $timezoneInterface)
     {
         $this->objectManager = \Magento\Framework\App\ObjectManager::getInstance();
@@ -38,6 +52,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns API Key from Store Configuration
+     *
      * @return string
      */
     public function getApiKey()
@@ -47,6 +62,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns Sender ID from Store Configuration
+     *
      * @return string
      */
     public function getSenderId()
@@ -56,6 +72,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns Store Mobile Number from Store Configuration
+     *
      * @return string
      */
     public function getStoreMobileNumber()
@@ -65,6 +82,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns Show Reports Configuration
+     *
      * @return string
      */
     public function getShowReports()
@@ -74,6 +92,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns Show Contacts Configuration
+     *
      * @return string
      */
     public function getShowContacts()
@@ -83,6 +102,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns Test SMS Text from Store Configuration
+     *
      * @return string
      */
     public function getTestSmsText()
@@ -92,6 +112,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns Test Mobile Number from Store Configuration
+     *
      * @return string
      */
     public function getTestMobileNumber()
@@ -101,6 +122,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns whether new order sms is enabled or not
+     *
      * @return boolean
      */
     public function getNewOrderSmsEnabled()
@@ -110,6 +132,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns New Order SMS Text from Store Configuration
+     *
      * @return string
      */
     public function getNewOrderSmsText()
@@ -119,6 +142,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns whether new order sms notification to admin is enabled or not
+     *
      * @return boolean
      */
     public function getNewOrderSmsAdminNotifyEnabled()
@@ -128,6 +152,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns New Order SMS Sender Id from Store Configuration
+     *
      * @return string
      */
     public function getNewOrderSmsSenderId()
@@ -137,6 +162,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns whether order paid  sms is enabled or not
+     *
      * @return boolean
      */
     public function getOrderPaidSmsEnabled()
@@ -146,6 +172,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns order paid  SMS Text from Store Configuration
+     *
      * @return string
      */
     public function getOrderPaidSmsText()
@@ -155,6 +182,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns whether order paid  sms notification to admin is enabled or not
+     *
      * @return boolean
      */
     public function getOrderPaidSmsAdminNotifyEnabled()
@@ -164,6 +192,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns order paid  SMS Sender Id from Store Configuration
+     *
      * @return string
      */
     public function getOrderPaidSmsSenderId()
@@ -173,6 +202,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns whether order refund sms is enabled or not
+     *
      * @return boolean
      */
     public function getRefundOrderSmsEnabled()
@@ -182,6 +212,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns order refund SMS Text from Store Configuration
+     *
      * @return string
      */
     public function getRefundOrderSmsText()
@@ -191,6 +222,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns whether order refund  sms notification to admin is enabled or not
+     *
      * @return boolean
      */
     public function getRefundOrderSmsAdminNotifyEnabled()
@@ -200,6 +232,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns order refund SMS Sender Id from Store Configuration
+     *
      * @return string
      */
     public function getRefundOrderSmsSenderId()
@@ -209,6 +242,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns whether order cancel sms is enabled or not
+     *
      * @return boolean
      */
     public function getCancelOrderSmsEnabled()
@@ -218,6 +252,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns order cancel SMS Text from Store Configuration
+     *
      * @return string
      */
     public function getCancelOrderSmsText()
@@ -227,6 +262,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns whether order cancel sms notification to admin is enabled or not
+     *
      * @return boolean
      */
     public function getCancelOrderSmsAdminNotifyEnabled()
@@ -236,6 +272,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns order cancel SMS Sender Id from Store Configuration
+     *
      * @return string
      */
     public function getCancelOrderSmsSenderId()
@@ -245,6 +282,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns whether new shipment sms is enabled or not
+     *
      * @return boolean
      */
     public function getNewShipmentSmsEnabled()
@@ -254,6 +292,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns New Shipment SMS Text from Store Configuration
+     *
      * @return string
      */
     public function getNewShipmentSmsText()
@@ -263,6 +302,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns whether new shipment sms notification to admin is enabled or not
+     *
      * @return boolean
      */
     public function getNewShipmentSmsAdminNotifyEnabled()
@@ -272,6 +312,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns New Shipment SMS Sender Id from Store Configuration
+     *
      * @return string
      */
     public function getNewShipmentSmsSenderId()
@@ -281,6 +322,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns whether shipment updates sms is enabled or not
+     *
      * @return boolean
      */
     public function getShipmentUpdatesSmsEnabled()
@@ -290,6 +332,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns Shipment Updates SMS Text from Store Configuration
+     *
      * @return string
      */
     public function getShipmentUpdatesSmsText()
@@ -299,6 +342,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns whether shipment updates sms notification to admin is enabled or not
+     *
      * @return boolean
      */
     public function getShipmentUpdatesSmsAdminNotifyEnabled()
@@ -308,6 +352,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns Shipment Updates SMS Sender Id from Store Configuration
+     *
      * @return string
      */
     public function getShipmentUpdatesSmsSenderId()
@@ -317,6 +362,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns whether hold order sms is enabled or not
+     *
      * @return boolean
      */
     public function getOrderHoldSmsEnabled()
@@ -326,6 +372,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns hold order sms text from Store Configuration
+     *
      * @return string
      */
     public function getOrderHoldSmsText()
@@ -335,6 +382,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns whether hold order sms notification to admin is enabled or not
+     *
      * @return boolean
      */
     public function getOrderHoldSmsAdminNotifyEnabled()
@@ -344,6 +392,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns hold order SMS Sender Id from Store Configuration
+     *
      * @return string
      */
     public function getOrderHoldSmsSenderId()
@@ -353,6 +402,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns whether unhold order sms is enabled or not
+     *
      * @return boolean
      */
     public function getOrderUnholdSmsEnabled()
@@ -362,6 +412,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns unhold order sms text from Store Configuration
+     *
      * @return string
      */
     public function getOrderUnholdSmsText()
@@ -371,6 +422,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns whether unhold order sms notification to admin is enabled or not
+     *
      * @return boolean
      */
     public function getOrderUnholdSmsAdminNotifyEnabled()
@@ -380,6 +432,7 @@ class Sms extends AbstractHelper
 
     /**
      * Returns unhold order SMS Sender Id from Store Configuration
+     *
      * @return string
      */
     public function getOrderUnholdSmsSenderId()
@@ -394,7 +447,6 @@ class Sms extends AbstractHelper
      * @param null $messageDate
      * @param string $trigger
      * @param bool $adminNotify
-     *
      * @return null
      * @throws Exception
      */
@@ -462,7 +514,6 @@ class Sms extends AbstractHelper
 
     /**
      * @param $messageId
-     *
      * @return string
      */
     public function getSmsStatus($messageId)
@@ -485,16 +536,19 @@ class Sms extends AbstractHelper
     }
 
     /**
-     * @param $message
-     * @param $data
+     * Undocumented function
      *
+     * @param string|null $message
+     * @param array $data
      * @return string
      */
-    public function messageProcessor($message, $data)
+    public function messageProcessor(string $message = null, array $data)
     {
         if (!is_null($message)) {
             foreach ($data as $key => $value) {
-                $message = str_replace('{' . $key . '}', $value, $message);
+                if (!is_null($value)) {
+                    $message = str_replace('{' . $key . '}', $value, $message);
+                }
             }
         }
 
@@ -503,7 +557,6 @@ class Sms extends AbstractHelper
 
     /**
      * @param $order
-     *
      * @return array
      */
     public function getOrderData($order)
@@ -525,7 +578,6 @@ class Sms extends AbstractHelper
     /**
      * @param $order
      * @param $shipment
-     *
      * @return array
      */
     public function getShipmentData($order, $shipment)
@@ -545,7 +597,6 @@ class Sms extends AbstractHelper
 
     /**
      * @param $order
-     *
      * @return array
      */
     public function getInvoiceData($order)
@@ -558,7 +609,6 @@ class Sms extends AbstractHelper
 
     /**
      * @param $customer
-     *
      * @return array
      */
     public function getCustomerData($customer)
@@ -572,6 +622,10 @@ class Sms extends AbstractHelper
         return $data;
     }
 
+    /**
+     * @param [type] $datetime
+     * @return void
+     */
     public function datetimeconv($datetime)
     {
         $datetime = new \DateTime(str_replace('T', ' ', substr($datetime, 0, -5)));
@@ -582,7 +636,6 @@ class Sms extends AbstractHelper
 
     /**
      * @param string $dateTime
-     *
      * @return string $dateTime as time zone
      * @throws
      */
@@ -597,7 +650,13 @@ class Sms extends AbstractHelper
         return $dateTimeAsTimeZone;
     }
 
-    public function sendRequest($method, $url, $data = null)
+    /**
+     * @param string $method
+     * @param string $url
+     * @param array|string $data
+     * @return void
+     */
+    public function sendRequest(string $method, string $url, array|string $data = null)
     {
         $apikey = $this->getApiKey();
         $method = strtoupper($method);

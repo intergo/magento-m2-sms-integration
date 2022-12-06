@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SMSto SMS Integration with Magento developed by SMSto Team (Panayiotis Halouvas)
  * Copyright (C) 2018  SMSto
@@ -13,17 +14,35 @@ namespace Smsto\Sms\Observer\Sales;
 
 use Smsto\Sms\Logger\Logger as Logger;
 
+/**
+ * Undocumented class
+ */
 class OrderCreditmemoSaveAfter implements \Magento\Framework\Event\ObserverInterface
 {
-
-
+    /**
+     * Undocumented variable
+     *
+     * @var [type]
+     */
     protected $smsHelper;
+
+    /**
+     * Undocumented variable
+     *
+     * @var [type]
+     */
     protected $logger;
 
-
-    public function __construct(\Smsto\Sms\Helper\Sms $smsHelper, Logger $logger
-    )
-    {
+    /**
+     * Undocumented function
+     *
+     * @param \Smsto\Sms\Helper\Sms $smsHelper
+     * @param Logger $logger
+     */
+    public function __construct(
+        \Smsto\Sms\Helper\Sms $smsHelper,
+        Logger $logger
+    ) {
         $this->smsHelper = $smsHelper;
         $this->logger = $logger;
     }
@@ -36,8 +55,7 @@ class OrderCreditmemoSaveAfter implements \Magento\Framework\Event\ObserverInter
      */
     public function execute(
         \Magento\Framework\Event\Observer $observer
-    )
-    {
+    ) {
         if ($this->smsHelper->getRefundOrderSmsEnabled()) {
 
             $creditmemo = $observer->getEvent()->getCreditmemo()->getData();

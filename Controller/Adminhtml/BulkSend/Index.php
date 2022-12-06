@@ -1,6 +1,10 @@
 <?php
+
 namespace Smsto\Sms\Controller\Adminhtml\BulkSend;
 
+/**
+ * Bulk send action
+ */
 class Index extends \Magento\Backend\App\Action
 {
     /**

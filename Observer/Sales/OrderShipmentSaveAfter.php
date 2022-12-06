@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SMSto SMS Integration with Magento developed by SMSto Team (Panayiotis Halouvas)
  * Copyright (C) 2018  SMSto
@@ -13,17 +14,35 @@ namespace Smsto\Sms\Observer\Sales;
 
 use Smsto\Sms\Logger\Logger as Logger;
 
+/**
+ * Undocumented class
+ */
 class OrderShipmentSaveAfter implements \Magento\Framework\Event\ObserverInterface
 {
-
-
+    /**
+     * Undocumented variable
+     *
+     * @var [type]
+     */
     protected $smsHelper;
+
+    /**
+     * Undocumented variable
+     *
+     * @var [type]
+     */
     protected $logger;
 
-
-    public function __construct(\Smsto\Sms\Helper\Sms $smsHelper, Logger $logger
-    )
-    {
+    /**
+     * Undocumented function
+     *
+     * @param \Smsto\Sms\Helper\Sms $smsHelper
+     * @param Logger $logger
+     */
+    public function __construct(
+        \Smsto\Sms\Helper\Sms $smsHelper,
+        Logger $logger
+    ) {
         $this->smsHelper = $smsHelper;
         $this->logger = $logger;
     }
@@ -36,8 +55,7 @@ class OrderShipmentSaveAfter implements \Magento\Framework\Event\ObserverInterfa
      */
     public function execute(
         \Magento\Framework\Event\Observer $observer
-    )
-    {
+    ) {
         if ($this->smsHelper->getNewShipmentSmsEnabled()) {
             $shipment = $observer->getEvent()->getShipment()->getData();
             $this->logger->info('Shipment', [$shipment]);
@@ -57,7 +75,6 @@ class OrderShipmentSaveAfter implements \Magento\Framework\Event\ObserverInterfa
 
             $this->logger->info('Customer Mobile:', [$destination]);
 
-
             if ($destination) {
                 if ($shipment['created_at'] == $shipment['updated_at']) {
                     $this->logger->info('New Shipment SMS Initiated', [$orderId]);
@@ -73,7 +90,7 @@ class OrderShipmentSaveAfter implements \Magento\Framework\Event\ObserverInterfa
                     $adminNotify = $this->smsHelper->getShipmentUpdatesSmsAdminNotifyEnabled();
                 }
                 $data = $this->smsHelper->getOrderData($order);
-                $data = array_merge($data, $this->smsHelper->getShipmentData($order,$observer->getEvent()->getShipment()));
+                $data = array_merge($data, $this->smsHelper->getShipmentData($order, $observer->getEvent()->getShipment()));
                 $data['CustomerTelephone'] = $destination;
                 $message = $this->smsHelper->messageProcessor($message, $data);
                 $this->smsHelper->sendSms($origin, $destination, $message, null, $trigger, $adminNotify);

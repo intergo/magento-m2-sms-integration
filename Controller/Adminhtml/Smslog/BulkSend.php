@@ -10,6 +10,9 @@ use Magento\Customer\Api\CustomerRepositoryInterface;
 use Magento\Customer\Controller\Adminhtml\Index\AbstractMassAction;
 use Magento\Customer\Model\ResourceModel\Customer\CollectionFactory;
 
+/**
+ * Bulk send mass action
+ */
 class BulkSend extends AbstractMassAction
 {
     /**
@@ -17,9 +20,15 @@ class BulkSend extends AbstractMassAction
      */
     protected $filter;
 
-
+    /**
+     * @var [type]
+     */
     protected $customerRepository;
 
+    /**
+     * @param AbstractCollection $collection
+     * @return void
+     */
     protected function massAction(AbstractCollection $collection)
     {
         $data = [];
@@ -32,16 +41,20 @@ class BulkSend extends AbstractMassAction
         return $resultRedirect->setPath('sms/bulksend', ['_query' => $data]);
     }
 
+    /**
+     * @param Context $context
+     * @param Filter $filter
+     * @param CollectionFactory $collectionFactory
+     * @param CustomerRepositoryInterface $customerRepository
+     */
     public function __construct(
         Context $context,
         Filter $filter,
 
         CollectionFactory $collectionFactory,
         CustomerRepositoryInterface $customerRepository
-    )
-    {
+    ) {
         parent::__construct($context, $filter, $collectionFactory);
         $this->customerRepository = $customerRepository;
     }
-
 }

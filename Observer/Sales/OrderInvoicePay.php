@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SMSto SMS Integration with Magento developed by SMSto Team (Panayiotis Halouvas)
  * Copyright (C) 2018  SMSto
@@ -13,20 +14,38 @@ namespace Smsto\Sms\Observer\Sales;
 
 use Smsto\Sms\Logger\Logger as Logger;
 
-
+/**
+ * Undocumented class
+ */
 class OrderInvoicePay implements \Magento\Framework\Event\ObserverInterface
 {
+    /**
+     * Undocumented variable
+     *
+     * @var [type]
+     */
     protected $smsHelper;
+
+    /**
+     * Undocumented variable
+     *
+     * @var [type]
+     */
     protected $logger;
 
-
-    public function __construct(\Smsto\Sms\Helper\Sms $smsHelper, Logger $logger
-    )
-    {
+    /**
+     * Undocumented function
+     *
+     * @param \Smsto\Sms\Helper\Sms $smsHelper
+     * @param Logger $logger
+     */
+    public function __construct(
+        \Smsto\Sms\Helper\Sms $smsHelper,
+        Logger $logger
+    ) {
         $this->smsHelper = $smsHelper;
         $this->logger = $logger;
     }
-
 
     /**
      * Execute observer
@@ -36,8 +55,7 @@ class OrderInvoicePay implements \Magento\Framework\Event\ObserverInterface
      */
     public function execute(
         \Magento\Framework\Event\Observer $observer
-    )
-    {
+    ) {
         if ($this->smsHelper->getOrderPaidSmsEnabled()) {
 
             /** @var \Magento\Sales\Model\Order\Invoice $invoice */
@@ -72,7 +90,6 @@ class OrderInvoicePay implements \Magento\Framework\Event\ObserverInterface
                 $message = $this->smsHelper->messageProcessor($message, $data);
                 $this->smsHelper->sendSms($origin, $destination, $message, null, $trigger, $adminNotify);
             }
-
         }
     }
 }

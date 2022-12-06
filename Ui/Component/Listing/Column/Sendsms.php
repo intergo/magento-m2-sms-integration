@@ -1,4 +1,5 @@
 <?php
+
 namespace Smsto\Sms\Ui\Component\Listing\Column;
 
 use Magento\Framework\UrlInterface;
@@ -6,6 +7,9 @@ use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
 
+/**
+ * Undocumented class
+ */
 class Sendsms extends Column
 {
     /**
@@ -43,7 +47,7 @@ class Sendsms extends Column
     {
         if (isset($dataSource['data']['items'])) {
             $fieldName = $this->getData('name');
-            foreach ($dataSource['data']['items'] as & $item) {
+            foreach ($dataSource['data']['items'] as &$item) {
                 $item[$fieldName . '_html'] = "<button class='button'><span>SMS</span></button>";
                 $item[$fieldName . '_title'] = __('Send SMS to Customer');
                 $item[$fieldName . '_submitlabel'] = __('Send');

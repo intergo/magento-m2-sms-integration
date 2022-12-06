@@ -11,6 +11,9 @@
 
 namespace Smsto\Sms\Api\Data;
 
+/**
+ * Interface class
+ */
 interface SmslogInterface extends \Magento\Framework\Api\ExtensibleDataInterface
 {
 

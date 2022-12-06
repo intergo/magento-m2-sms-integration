@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SMSto SMS Integration with Magento developed by SMSto Team (Panayiotis Halouvas)
  * Copyright (C) 2018  SMSto
@@ -11,6 +12,9 @@
 
 namespace Smsto\Sms\Model\ResourceModel;
 
+/**
+ * Smslog db
+ */
 class Smslog extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
 

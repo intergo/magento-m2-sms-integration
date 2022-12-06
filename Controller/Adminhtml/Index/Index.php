@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SMSto SMS Integration with Magento developed by SMSto Team (Panayiotis Halouvas)
  * Copyright (C) 2018  SMSto
@@ -11,11 +12,25 @@
 
 namespace Smsto\Sms\Controller\Adminhtml\Index;
 
+/**
+ * Index action
+ */
 class Index extends \Magento\Backend\App\Action
 {
-
+    /**
+     *
+     * @var [type]
+     */
     protected $resultPageFactory;
+
+    /**
+     * @var [type]
+     */
     protected $jsonHelper;
+
+    /**
+     * @var [type]
+     */
     protected $smsHelper;
 
     /**
@@ -31,14 +46,12 @@ class Index extends \Magento\Backend\App\Action
         \Magento\Framework\Json\Helper\Data $jsonHelper,
         \Smsto\Sms\Helper\Sms $smsHelper
 
-    )
-    {
+    ) {
         $this->resultPageFactory = $resultPageFactory;
         $this->jsonHelper = $jsonHelper;
         $this->smsHelper = $smsHelper;
         parent::__construct($context);
     }
-
 
     /**
      * Execute view action
