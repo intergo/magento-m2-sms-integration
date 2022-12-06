@@ -3,7 +3,7 @@
 namespace Smsto\Sms\Model\ResourceModel\Smslog;
 
 /**
- * Collection Factory
+ * Implenets the Collection Factory as required
  */
 class CollectionFactory
 {
@@ -27,17 +27,21 @@ class CollectionFactory
      * @param \Magento\Framework\ObjectManagerInterface $objectManager
      * @param string $instanceName
      */
-    public function __construct(\Magento\Framework\ObjectManagerInterface $objectManager, $instanceName = '\\Smsto\\Sms\Model\\ResourceModel\\Smslog\\Collection')
-    {
+    public function __construct(
+        \Magento\Framework\ObjectManagerInterface $objectManager,
+        $instanceName = \Smsto\Sms\Model\ResourceModel\Smslog\Collection::class
+    ) {
         $this->objectManager = $objectManager;
         $this->instanceName = $instanceName;
     }
 
     /**
+     * Undocumented function
+     *
      * @param array $data
-     * @return mixed
+     * @return void
      */
-    public function create(array $data = array())
+    public function create(array $data = [])
     {
         return $this->objectManager->create($this->instanceName, $data);
     }

@@ -45,7 +45,6 @@ class Index extends \Magento\Backend\App\Action
         \Magento\Framework\View\Result\PageFactory $resultPageFactory,
         \Magento\Framework\Json\Helper\Data $jsonHelper,
         \Smsto\Sms\Helper\Sms $smsHelper
-
     ) {
         $this->resultPageFactory = $resultPageFactory;
         $this->jsonHelper = $jsonHelper;
@@ -68,7 +67,6 @@ class Index extends \Magento\Backend\App\Action
 
             $output = $this->smsHelper->sendSms($origin, $destination, $message);
 
-
             return $this->jsonResponse($output);
         } catch (\Magento\Framework\Exception\LocalizedException $e) {
             return $this->jsonResponse($e->getMessage());
@@ -78,9 +76,10 @@ class Index extends \Magento\Backend\App\Action
     }
 
     /**
-     * Create json response
+     * Undocumented function
      *
-     * @return \Magento\Framework\Controller\ResultInterface
+     * @param string $response
+     * @return void
      */
     public function jsonResponse($response = '')
     {

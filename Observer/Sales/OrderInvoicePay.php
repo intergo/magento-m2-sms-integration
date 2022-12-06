@@ -66,7 +66,6 @@ class OrderInvoicePay implements \Magento\Framework\Event\ObserverInterface
             $orderId = $invoice->getOrder()->getIncrementId();
             $this->logger->info('Order Paid SMS Initiated', [$orderId]);
 
-
             $address = $order->getShippingAddress() ?? $order->getBillingAddress();
 
             if (($address instanceof \Magento\Sales\Model\Order\Address) === false) {

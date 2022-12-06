@@ -9,7 +9,7 @@
                 "destination": jQuery("#generalsettings_testsmssettings_testmobilenumber").val(),
             };
 
-            new Ajax.Request('<?= $block->getAjaxUrl() ?>', {
+            new Ajax.Request('<?= $block->escapeUrl($block->getAjaxUrl()) ?>', {
                 loaderArea:     false,
                 asynchronous:   true,
                 parameters:     params,

@@ -14,7 +14,6 @@ namespace Smsto\Sms\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
-use Magento\Setup\Exception;
 use Smsto\Sms\Logger\Logger as Logger;
 
 /**
@@ -38,14 +37,19 @@ class Sms extends AbstractHelper
     protected $_timezoneInterface;
 
     /**
+     * Undocumented function
+     *
      * @param Context $context
      * @param Logger $logger
      * @param \Magento\Framework\Stdlib\DateTime\TimezoneInterface $timezoneInterface
      */
-    public function __construct(Context $context, Logger $logger, \Magento\Framework\Stdlib\DateTime\TimezoneInterface $timezoneInterface)
-    {
+    public function __construct(
+        Context $context,
+        Logger $logger,
+        \Magento\Framework\Stdlib\DateTime\TimezoneInterface $timezoneInterface
+    ) {
         $this->objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-        $this->objectInterface = $this->objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface');
+        $this->objectInterface = $this->objectManager->get(\Magento\Framework\App\Config\ScopeConfigInterface::class);
         $this->_timezoneInterface = $timezoneInterface;
         parent::__construct($context);
     }
@@ -441,17 +445,24 @@ class Sms extends AbstractHelper
     }
 
     /**
-     * @param $sender_id
-     * @param $destination
-     * @param $message
-     * @param null $messageDate
+     * Send SMS function
+     *
+     * @param string $sender_id
+     * @param string $destination
+     * @param string $message
+     * @param string|null $messageDate
      * @param string $trigger
-     * @param bool $adminNotify
-     * @return null
-     * @throws Exception
+     * @param boolean $adminNotify
+     * @return void
      */
-    public function sendSms($sender_id, $destination, $message, $messageDate = null, $trigger = "Message", $adminNotify = false)
-    {
+    public function sendSms(
+        string $sender_id,
+        string $destination,
+        string $message,
+        string $messageDate = null,
+        string $trigger = "Message",
+        bool $adminNotify = false
+    ) {
         if (empty($message)) {
             return;
         }
@@ -490,7 +501,9 @@ class Sms extends AbstractHelper
     }
 
     /**
-     * @return string
+     * Get balance function
+     *
+     * @return void
      */
     public function getBalance()
     {
@@ -513,10 +526,12 @@ class Sms extends AbstractHelper
     }
 
     /**
-     * @param $messageId
-     * @return string
+     * Get sms status
+     *
+     * @param string $messageId
+     * @return void
      */
-    public function getSmsStatus($messageId)
+    public function getSmsStatus(string $messageId)
     {
         $apikey = $this->getApiKey();
 
@@ -544,9 +559,9 @@ class Sms extends AbstractHelper
      */
     public function messageProcessor(string $message = null, array $data)
     {
-        if (!is_null($message)) {
+        if ($message !== null) {
             foreach ($data as $key => $value) {
-                if (!is_null($value)) {
+                if ($value !== null) {
                     $message = str_replace('{' . $key . '}', $value, $message);
                 }
             }
@@ -556,10 +571,12 @@ class Sms extends AbstractHelper
     }
 
     /**
-     * @param $order
+     * Get order data
+     *
+     * @param \Magento\Sales\Model\Order $order
      * @return array
      */
-    public function getOrderData($order)
+    public function getOrderData(\Magento\Sales\Model\Order $order)
     {
         $data = [];
         $data['OrderNumber'] = $order->getIncrementId();
@@ -576,11 +593,13 @@ class Sms extends AbstractHelper
     }
 
     /**
-     * @param $order
-     * @param $shipment
-     * @return array
+     * Get shipment data
+     *
+     * @param \Magento\Sales\Model\Order $order
+     * @param \Magento\Sales\Model\Order\Shipment $shipment
+     * @return void
      */
-    public function getShipmentData($order, $shipment)
+    public function getShipmentData(\Magento\Sales\Model\Order $order, \Magento\Sales\Model\Order\Shipment $shipment)
     {
         $data = [];
 
@@ -596,10 +615,12 @@ class Sms extends AbstractHelper
     }
 
     /**
-     * @param $order
-     * @return array
+     * Undocumented function
+     *
+     * @param \Magento\Sales\Model\Order $order
+     * @return void
      */
-    public function getInvoiceData($order)
+    public function getInvoiceData(\Magento\Sales\Model\Order $order)
     {
         $data = [];
         $data['PaymentMode'] = $order->getPayment()->getMethodInstance()->getCode();
@@ -608,8 +629,10 @@ class Sms extends AbstractHelper
     }
 
     /**
-     * @param $customer
-     * @return array
+     * Undocumented function
+     *
+     * @param [type] $customer
+     * @return void
      */
     public function getCustomerData($customer)
     {
@@ -623,6 +646,8 @@ class Sms extends AbstractHelper
     }
 
     /**
+     * Undocumented function
+     *
      * @param [type] $datetime
      * @return void
      */
@@ -635,9 +660,10 @@ class Sms extends AbstractHelper
     }
 
     /**
-     * @param string $dateTime
-     * @return string $dateTime as time zone
-     * @throws
+     * Undocumented function
+     *
+     * @param [type] $dateTime
+     * @return void
      */
     public function getTimeAccordingToTimeZone($dateTime)
     {
@@ -651,9 +677,11 @@ class Sms extends AbstractHelper
     }
 
     /**
+     * Undocumented function
+     *
      * @param string $method
      * @param string $url
-     * @param array|string $data
+     * @param array|string|null $data
      * @return void
      */
     public function sendRequest(string $method, string $url, array|string $data = null)
@@ -669,10 +697,10 @@ class Sms extends AbstractHelper
         }
 
         if ($apikey == '') {
-            throw new \Exception('No API/Secret key Provided');
+            throw new \RuntimeException('No API/Secret key Provided');
         }
 
-        $productMetadata = $this->objectManager->get('Magento\Framework\App\ProductMetadataInterface');
+        $productMetadata = $this->objectManager->get(\Magento\Framework\App\ProductMetadataInterface::class);
         $agent = "SMSto-Integrations/1.0, Magento-m2/" . $productMetadata->getVersion();
 
         $curl = curl_init();
@@ -703,7 +731,7 @@ class Sms extends AbstractHelper
         curl_close($curl);
 
         if ($err) {
-            throw new \Exception('Retry again.');
+            throw new \RuntimeException('Retry again.');
         }
 
         return $response;

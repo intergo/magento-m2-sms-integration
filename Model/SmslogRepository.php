@@ -134,7 +134,10 @@ class SmslogRepository implements SmslogRepositoryInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Retrieve smsto params.
+     *
+     * @return array
+     * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function getParams()
     {
@@ -151,7 +154,10 @@ class SmslogRepository implements SmslogRepositoryInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Call smsto api and return result.
+     *
+     * @return array
+     * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function callSmsto()
     {

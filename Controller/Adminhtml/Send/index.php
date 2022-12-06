@@ -14,11 +14,11 @@ use Magento\Framework\View\Result\Page;
 use Magento\Framework\View\Result\PageFactory;
 
 /**
- * Class Index
+ * Index Action implementing get action
  */
 class Index extends Action implements HttpGetActionInterface
 {
-    const MENU_ID = 'Smsto_Sms::send';
+    public const MENU_ID = 'Smsto_Sms::send';
 
     /**
      * @var PageFactory

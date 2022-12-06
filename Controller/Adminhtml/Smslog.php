@@ -17,7 +17,7 @@ namespace Smsto\Sms\Controller\Adminhtml;
  */
 abstract class Smslog extends \Magento\Backend\App\Action
 {
-    const ADMIN_RESOURCE = 'Smsto_Sms::top_level';
+    public const ADMIN_RESOURCE = 'Smsto_Sms::top_level';
 
     /**
      * @var [type]

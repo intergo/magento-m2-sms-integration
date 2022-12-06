@@ -7,10 +7,23 @@ namespace Smsto\Sms\Block\System\Config;
  */
 class Balance extends \Magento\Config\Block\System\Config\Form\Field
 {
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
     protected $_template = 'Smsto_Sms::system/config/balance.phtml';
+
+    /**
+     * Undocumented variable
+     *
+     * @var [type]
+     */
     protected $smsHelper;
 
     /**
+     * Undocumented function
+     *
      * @param \Magento\Backend\Block\Template\Context $context
      * @param \Smsto\Sms\Helper\Sms $smsHelper
      */
@@ -23,6 +36,8 @@ class Balance extends \Magento\Config\Block\System\Config\Form\Field
     }
 
     /**
+     * Undocumented function
+     *
      * @param \Magento\Framework\Data\Form\Element\AbstractElement $element
      * @return void
      */
@@ -33,6 +48,8 @@ class Balance extends \Magento\Config\Block\System\Config\Form\Field
     }
 
     /**
+     * Undocumented function
+     *
      * @param \Magento\Framework\Data\Form\Element\AbstractElement $element
      * @return void
      */
@@ -42,6 +59,8 @@ class Balance extends \Magento\Config\Block\System\Config\Form\Field
     }
 
     /**
+     * Undocumented function
+     *
      * @return void
      */
     public function getButtonHtml()

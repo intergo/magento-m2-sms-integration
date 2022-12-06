@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SMSto SMS Integration with Magento developed by SMSto Team (Panayiotis Halouvas)
  * Copyright (C) 2018  SMSto
@@ -38,9 +39,10 @@ class OrderSaveAfter implements \Magento\Framework\Event\ObserverInterface
      * @param \Smsto\Sms\Helper\Sms $smsHelper
      * @param Logger $logger
      */
-    public function __construct(\Smsto\Sms\Helper\Sms $smsHelper, Logger $logger
-    )
-    {
+    public function __construct(
+        \Smsto\Sms\Helper\Sms $smsHelper,
+        Logger $logger
+    ) {
         $this->smsHelper = $smsHelper;
         $this->logger = $logger;
     }
@@ -51,9 +53,7 @@ class OrderSaveAfter implements \Magento\Framework\Event\ObserverInterface
      * @param \Magento\Framework\Event\Observer $observer
      * @return void
      */
-    public function execute(
-        \Magento\Framework\Event\Observer $observer
-    )
+    public function execute(\Magento\Framework\Event\Observer $observer)
     {
         $destination = null;
         $flag = false;
@@ -62,9 +62,8 @@ class OrderSaveAfter implements \Magento\Framework\Event\ObserverInterface
         $state = $order['state'];
         $this->logger->info('Order ID (state) & Order:', [$orderId, $state, $order]);
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-        $orderObj = $objectManager->get('Magento\Sales\Model\Order');
+        $orderObj = $objectManager->get(\Magento\Sales\Model\Order::class);
         $orderInformation = $orderObj->loadByIncrementId($orderId);
-
 
         $address = $orderInformation->getShippingAddress() ?? $orderInformation->getBillingAddress();
 
@@ -85,7 +84,6 @@ class OrderSaveAfter implements \Magento\Framework\Event\ObserverInterface
             }
         }
 
-
         if ($destination) {
             $this->logger->info('Customer Mobile:', [$destination]);
             if ($state == "new" && $this->smsHelper->getNewOrderSmsEnabled()) {
@@ -104,7 +102,12 @@ class OrderSaveAfter implements \Magento\Framework\Event\ObserverInterface
                 $adminNotify = $this->smsHelper->getOrderHoldSmsAdminNotifyEnabled();
                 $flag = true;
             }
-            if (isset($_SERVER['REQUEST_URI']) && strpos($_SERVER['REQUEST_URI'], 'order/unhold') !== false && $this->smsHelper->getOrderUnholdSmsEnabled()) {
+            if (
+                isset($_SERVER['REQUEST_URI']) && strpos(
+                    $_SERVER['REQUEST_URI'],
+                    'order/unhold'
+                ) !== false && $this->smsHelper->getOrderUnholdSmsEnabled()
+            ) {
                 $this->logger->info('unhold order SMS Initiated', [$order]);
                 $trigger = "Unhold Order";
                 $origin = $this->smsHelper->getOrderUnholdSmsSenderId();

@@ -26,6 +26,8 @@ class BulkSend extends AbstractMassAction
     protected $customerRepository;
 
     /**
+     * Undocumented function
+     *
      * @param AbstractCollection $collection
      * @return void
      */
@@ -42,6 +44,8 @@ class BulkSend extends AbstractMassAction
     }
 
     /**
+     * Undocumented function
+     *
      * @param Context $context
      * @param Filter $filter
      * @param CollectionFactory $collectionFactory
