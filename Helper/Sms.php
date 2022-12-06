@@ -536,15 +536,19 @@ class Sms extends AbstractHelper
     }
 
     /**
-     * @param $message
-     * @param $data
+     * Undocumented function
+     *
+     * @param string|null $message
+     * @param array $data
      * @return string
      */
-    public function messageProcessor($message, $data)
+    public function messageProcessor(string $message = null, array $data)
     {
         if (!is_null($message)) {
             foreach ($data as $key => $value) {
-                $message = str_replace('{' . $key . '}', $value, $message);
+                if (!is_null($value)) {
+                    $message = str_replace('{' . $key . '}', $value, $message);
+                }
             }
         }
 
