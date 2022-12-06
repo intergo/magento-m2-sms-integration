@@ -13,20 +13,37 @@ namespace Smsto\Sms\Observer\Sales;
 
 use Smsto\Sms\Logger\Logger as Logger;
 
-
+/**
+ * Undocumented class
+ */
 class OrderSaveAfter implements \Magento\Framework\Event\ObserverInterface
 {
+    /**
+     * Undocumented variable
+     *
+     * @var [type]
+     */
     protected $smsHelper;
+
+    /**
+     * Undocumented variable
+     *
+     * @var [type]
+     */
     protected $logger;
 
-
+    /**
+     * Undocumented function
+     *
+     * @param \Smsto\Sms\Helper\Sms $smsHelper
+     * @param Logger $logger
+     */
     public function __construct(\Smsto\Sms\Helper\Sms $smsHelper, Logger $logger
     )
     {
         $this->smsHelper = $smsHelper;
         $this->logger = $logger;
     }
-
 
     /**
      * Execute observer

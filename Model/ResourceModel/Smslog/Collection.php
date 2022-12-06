@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SMSto SMS Integration with Magento developed by SMSto Team (Panayiotis Halouvas)
  * Copyright (C) 2018  SMSto
@@ -11,11 +12,15 @@
 
 namespace Smsto\Sms\Model\ResourceModel\Smslog;
 
+/**
+ * Abstract collection
+ */
 class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
 {
-
+    /**
+     * @var string
+     */
     protected $_idFieldName = 'log_id';
-
 
     /**
      * @inheritdoc
@@ -26,6 +31,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
         parent::_initSelect();
         return $this;
     }
+
     /**
      * Define resource model
      *

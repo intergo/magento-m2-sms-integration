@@ -8,6 +8,9 @@ use Magento\Ui\Component\MassAction\Filter;
 use Smsto\Sms\Model\ResourceModel\Smslog\CollectionFactory as CollectionFactory;
 use Smsto\Sms\Logger\Logger as Logger;
 
+/**
+ * Send sms action
+ */
 class SendSms extends \Magento\Backend\App\Action
 {
     /**
@@ -20,17 +23,22 @@ class SendSms extends \Magento\Backend\App\Action
      */
     protected $collectionFactory;
 
+    /**
+     * @var [type]
+     */
     protected $smsHelper;
+
+    /**
+     * @var [type]
+     */
     protected $logger;
-
-
 
     /**
      * @param Context $context
      * @param Filter $filter
      * @param CollectionFactory $collectionFactory
      */
-    public function __construct(Context $context, Filter $filter, CollectionFactory $collectionFactory,\Smsto\Sms\Helper\Sms $smsHelper, Logger $logger)
+    public function __construct(Context $context, Filter $filter, CollectionFactory $collectionFactory, \Smsto\Sms\Helper\Sms $smsHelper, Logger $logger)
     {
         $this->filter = $filter;
         $this->collectionFactory = $collectionFactory;
@@ -51,12 +59,12 @@ class SendSms extends \Magento\Backend\App\Action
         $post = $this->getRequest()->getPostValue();
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
         $custObj = $post['entity_id'];
-        if(strstr($custObj,",")){
+        if (strstr($custObj, ",")) {
             $custids = explode(",", $custObj);
-        }else{
+        } else {
             $custids = [$custObj];
         }
-        foreach($custids as $custid) {
+        foreach ($custids as $custid) {
             $customer = $objectManager->create('Magento\Customer\Model\Customer')->load($custid);
             $destination = $customer->getDefaultBillingAddress() ? $customer->getDefaultBillingAddress()->getTelephone() : ($customer->getDefaultShippingAddress() ? $customer->getDefaultShippingAddress()->getTelephone() : null);
             if ($destination) {

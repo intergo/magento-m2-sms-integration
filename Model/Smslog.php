@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SMSto SMS Integration with Magento developed by SMSto Team (Panayiotis Halouvas)
  * Copyright (C) 2018  SMSto
@@ -15,12 +16,24 @@ use Smsto\Sms\Api\Data\SmslogInterface;
 use Smsto\Sms\Api\Data\SmslogInterfaceFactory;
 use Magento\Framework\Api\DataObjectHelper;
 
+/**
+ * Smslog model
+ */
 class Smslog extends \Magento\Framework\Model\AbstractModel
 {
-
+    /**
+     * @var string
+     */
     protected $_eventPrefix = 'smsto_sms_smslog';
+
+    /**
+     * @var [type]
+     */
     protected $dataObjectHelper;
 
+    /**
+     * @var [type]
+     */
     protected $smslogDataFactory;
 
 
@@ -49,6 +62,7 @@ class Smslog extends \Magento\Framework\Model\AbstractModel
 
     /**
      * Retrieve smslog model with smslog data
+     *
      * @return SmslogInterface
      */
     public function getDataModel()

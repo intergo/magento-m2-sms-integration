@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SMSto SMS Integration with Magento developed by SMSto Team (Panayiotis Halouvas)
  * Copyright (C) 2018  SMSto
@@ -13,8 +14,20 @@ namespace Smsto\Sms\Plugin;
 
 use Magento\Framework\Webapi\ServiceOutputProcessor;
 
+/**
+ * Undocumented class
+ */
 class ServiceOutputProcessorPlugin
 {
+    /**
+     * Undocumented function
+     *
+     * @param ServiceOutputProcessor $subject
+     * @param callable $proceed
+     * @param [type] $data
+     * @param [type] $type
+     * @return void
+     */
     public function aroundConvertValue(ServiceOutputProcessor $subject, callable $proceed, $data, $type)
     {
         if ($type == 'array') {

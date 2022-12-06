@@ -1,6 +1,10 @@
 <?php
+
 namespace Smsto\Sms\Model\ResourceModel\Smslog;
 
+/**
+ * Collection Factory
+ */
 class CollectionFactory
 {
     /**

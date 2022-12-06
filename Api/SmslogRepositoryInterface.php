@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SMSto SMS Integration with Magento developed by SMSto Team (Panayiotis Halouvas)
  * Copyright (C) 2018  SMSto
@@ -17,6 +18,7 @@ interface SmslogRepositoryInterface
 {
     /**
      * Retrieve smsto params.
+     *
      * @return array
      * @throws \Magento\Framework\Exception\LocalizedException
      */
@@ -24,9 +26,9 @@ interface SmslogRepositoryInterface
 
     /**
      * Call smsto api and return result.
+     *
      * @return array
      * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function callSmsto();
-
 }

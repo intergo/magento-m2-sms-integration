@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SMSto SMS Integration with Magento developed by SMSto Team (Panayiotis Halouvas)
  * Copyright (C) 2018  SMSto
@@ -23,23 +24,65 @@ use Smsto\Sms\Api\Data\SmslogInterfaceFactory;
 use Magento\Framework\Api\DataObjectHelper;
 use Smsto\Sms\Model\ResourceModel\Smslog as ResourceSmslog;
 
+/**
+ * Repository
+ */
 class SmslogRepository implements SmslogRepositoryInterface
 {
-
+    /**
+     * Undocumented variable
+     *
+     * @var [type]
+     */
     protected $resource;
 
+    /**
+     * Undocumented variable
+     *
+     * @var [type]
+     */
     protected $dataSmslogFactory;
 
+    /**
+     * Undocumented variable
+     *
+     * @var [type]
+     */
     protected $smslogCollectionFactory;
 
+    /**
+     * Undocumented variable
+     *
+     * @var [type]
+     */
     protected $smslogFactory;
 
+    /**
+     * Undocumented variable
+     *
+     * @var [type]
+     */
     protected $dataObjectHelper;
 
+    /**
+     * Undocumented variable
+     *
+     * @var [type]
+     */
     protected $extensionAttributesJoinProcessor;
 
+    /**
+     * Undocumented variable
+     *
+     * @var [type]
+     */
     protected $dataObjectProcessor;
 
+    /**
+     * Undocumented variable
+     *
+     * @var [type]
+     */
     protected $extensibleDataObjectConverter;
 
     /**
@@ -84,7 +127,7 @@ class SmslogRepository implements SmslogRepositoryInterface
         $this->dataObjectProcessor = $dataObjectProcessor;
         $this->storeManager = $storeManager;
         $this->collectionProcessor = $collectionProcessor ?: ObjectManager::getInstance()
-                                                                          ->get(\Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface::class);
+            ->get(\Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface::class);
         $this->extensionAttributesJoinProcessor = $extensionAttributesJoinProcessor;
         $this->extensibleDataObjectConverter = $extensibleDataObjectConverter;
         $this->smsHelper = ObjectManager::getInstance()->get(\Smsto\Sms\Helper\Sms::class);
@@ -93,7 +136,8 @@ class SmslogRepository implements SmslogRepositoryInterface
     /**
      * {@inheritdoc}
      */
-    public function getParams() {
+    public function getParams()
+    {
         $response = [
             "success" => true,
             "message" => null,
@@ -109,7 +153,8 @@ class SmslogRepository implements SmslogRepositoryInterface
     /**
      * {@inheritdoc}
      */
-    public function callSmsto() {
+    public function callSmsto()
+    {
         $params = $this->smsHelper->getParams();
         $method = strtoupper($params['_method']);
         $url = $params['_url'];
@@ -117,5 +162,4 @@ class SmslogRepository implements SmslogRepositoryInterface
         $response = $this->smsHelper->sendRequest($method, $url, $payload);
         return json_decode($response, true);
     }
-
 }

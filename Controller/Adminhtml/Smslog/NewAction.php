@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SMSto SMS Integration with Magento developed by SMSto Team (Panayiotis Halouvas)
  * Copyright (C) 2018  SMSto
@@ -11,9 +12,15 @@
 
 namespace Smsto\Sms\Controller\Adminhtml\Smslog;
 
+/**
+ * New action for smslog
+ */
 class NewAction extends \Smsto\Sms\Controller\Adminhtml\Smslog
 {
 
+    /**
+     * @var [type]
+     */
     protected $resultForwardFactory;
 
     /**
