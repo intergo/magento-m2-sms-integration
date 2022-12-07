@@ -18,18 +18,11 @@ $VITE_ROUTE_SMSTO =  $url . "rest/V1/smsto-sms/callsmsto";
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <script
         type="module"
-        crossorigin
-        src="https://integration.sms.to/component_bulk_sms/
-        <?=
-            $block->escapeUrl($manifest['src/main.ts']['file']);
-        ?>">
+        crossorigin src="https://integration.sms.to/component_bulk_sms/<?= $block->escapeUrl($manifest['src/main.ts']['file']); ?>">
     </script>
     <link
         rel="stylesheet"
-        href="https://integration.sms.to/component_bulk_sms/
-        <?=
-            $block->escapeUrl($manifest['src/main.ts']['css'][0]);
-        ?>" />
+        href="https://integration.sms.to/component_bulk_sms/<?= $block->escapeUrl($manifest['src/main.ts']['css'][0]); ?>" />
 </head>
 
 <body>
