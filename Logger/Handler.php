@@ -5,7 +5,7 @@ namespace Smsto\Sms\Logger;
 use Monolog\Logger as  MonoLogger;
 
 /**
- * Handles the base class as required
+ * Logging operations
  */
 class Handler extends \Magento\Framework\Logger\Handler\Base
 {

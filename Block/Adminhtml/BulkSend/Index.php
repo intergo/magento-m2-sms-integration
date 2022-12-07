@@ -48,7 +48,7 @@ class Index extends \Magento\Backend\Block\Template
     public function getFormKey()
     {
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-        $key_form = $objectManager->get('Magento\Framework\Data\Form\FormKey');
+        $key_form = $objectManager->get(\Magento\Framework\Data\Form\FormKey::class);
         return $key_form->getFormKey();
     }
 
