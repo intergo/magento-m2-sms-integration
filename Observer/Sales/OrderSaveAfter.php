@@ -94,6 +94,7 @@ class OrderSaveAfter implements \Magento\Framework\Event\ObserverInterface
                 $adminNotify = $this->smsHelper->getNewOrderSmsAdminNotifyEnabled();
                 $flag = true;
             }
+
             if ($state == "holded" && $this->smsHelper->getOrderHoldSmsEnabled()) {
                 $this->logger->info('hold order SMS Initiated', [$order]);
                 $trigger = "Hold Order";
@@ -102,6 +103,7 @@ class OrderSaveAfter implements \Magento\Framework\Event\ObserverInterface
                 $adminNotify = $this->smsHelper->getOrderHoldSmsAdminNotifyEnabled();
                 $flag = true;
             }
+
             if (
                 isset($_SERVER['REQUEST_URI']) && strpos(
                     $_SERVER['REQUEST_URI'],
@@ -115,6 +117,7 @@ class OrderSaveAfter implements \Magento\Framework\Event\ObserverInterface
                 $adminNotify = $this->smsHelper->getOrderUnholdSmsAdminNotifyEnabled();
                 $flag = true;
             }
+
             if ($flag) {
                 $data = $this->smsHelper->getOrderData($orderInformation);
                 $data['CustomerTelephone'] = $destination;

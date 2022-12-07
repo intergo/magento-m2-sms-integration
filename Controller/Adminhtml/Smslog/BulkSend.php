@@ -54,7 +54,6 @@ class BulkSend extends AbstractMassAction
     public function __construct(
         Context $context,
         Filter $filter,
-
         CollectionFactory $collectionFactory,
         CustomerRepositoryInterface $customerRepository
     ) {

@@ -5,7 +5,10 @@ $customers = $block->getCustomerParams();
 <table class="data-grid" border="1">
     <tr>
         <td>
-            <form id="send-bulk-sms" method="post" enctype="multipart/form-data" action="<?= $block->escapeUrl($block->getFormUrl()); ?>">
+            <form id="send-bulk-sms"
+                method="post"
+                enctype="multipart/form-data"
+                action="<?= $block->escapeUrl($block->getFormUrl()); ?>">
                 <div class="modal-body">
                     <div class="bootbox-body">
                         <div>
@@ -42,7 +45,10 @@ $customers = $block->getCustomerParams();
                 </div>
                 <div class="modal-footer" align="right">
                     <span class="error"></span>
-                    <input type="hidden" name="entity_id" value="<?= $block->escapeHtmlAttr(implode(",", array_keys($customers))) ?> ">
+                    <input
+                        type="hidden"
+                        name="entity_id"
+                        value="<?= $block->escapeHtmlAttr(implode(",", array_keys($customers))) ?> ">
                     <input type="hidden" name="form_key" value="<?= $block->escapeHtmlAttr($block->getFormKey()) ?>">
                     <button type="submit" class="btn btn-primary"><span>Send SMS</span></button>
                     <span class="clear"></span>
